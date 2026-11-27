@@ -4,3 +4,8 @@ php-version = "8.3.0"
 [source]
 paths = ["src", "test"]
 includes = ["vendor"]
+
+# Keeps the parentheses around `new` in member access, so the formatted output does not
+# depend on which PHP version a matrix leg targets.
+[formatter]
+parentheses-around-new-in-member-access = true
