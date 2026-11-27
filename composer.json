@@ -1,0 +1,71 @@
+{
+    "name": "php-db/phpdb-sql92",
+    "description": "Standard SQL conformance platform for php-db",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "php-db",
+        "sql92",
+        "db"
+    ],
+    "homepage": "https://github.com/php-db/phpdb-sql92/discussions",
+    "support": {
+        "issues": "https://github.com/php-db/phpdb-sql92/issues",
+        "source": "https://github.com/php-db/phpdb-sql92",
+        "forum": "https://github.com/php-db/phpdb-sql92/discussions"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/php-db/phpdb"
+        }
+    ],
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "8.3.99"
+        },
+        "allow-plugins": {
+            "infection/extension-installer": true
+        }
+    },
+    "require": {
+        "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
+        "php-db/phpdb": "dev-rfc/256-statement-factory as 0.6.x-dev"
+    },
+    "require-dev": {
+        "infection/infection": "^0.34.2",
+        "php-db/phpdb-qa-tools": "0.1.x-dev",
+        "phpunit/phpunit": "^12.5.33"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpDb\\Sql92\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpDbTest\\Sql92\\": "test/unit/"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@static-analysis",
+            "@test"
+        ],
+        "cs-check": [
+            "mago format --check",
+            "mago lint"
+        ],
+        "cs-fix": [
+            "mago format",
+            "mago lint --fix"
+        ],
+        "static-analysis": "mago analyze",
+        "mutation-test": "infection",
+        "test": "phpunit --colors=always --testsuite \"unit test\"",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    }
+}
