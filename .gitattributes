@@ -1,0 +1,9 @@
+/.gitattributes export-ignore
+/.github/ export-ignore
+/.gitignore export-ignore
+/clover.xml export-ignore
+/infection.json5.dist export-ignore
+/mago.toml export-ignore
+/phpunit.xml.dist export-ignore
+/renovate.json export-ignore
+/test/ export-ignore
